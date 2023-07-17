@@ -31,11 +31,14 @@ class Syncronization():
 
     #Create file method
     def createFile(self):
-        #The file name we will get from console input
-        f = open(source + '/' + sys.argv[6], "w")
-        print("The "+ " " + sys.argv[6] + " " + " file has been created!")
-        logging.info("The "+ " " + sys.argv[6] + " " + " file has been created!")
-        self.syncFiles()
+        #The file name we will get from console input and we will check if the file exist
+        if os.path.exists(source + '/' + sys.argv[6]):
+            print("The "+ " " + sys.argv[6] + " " + " file already exist!")
+        else:
+            f = open(source + '/' + sys.argv[6], "w")
+            print("The "+ " " + sys.argv[6] + " " + " file has been created!")
+            logging.info("The "+ " " + sys.argv[6] + " " + " file has been created!")
+            self.syncFiles()
 
 
     #Delete file method
